@@ -1,4 +1,4 @@
-# -devinhouse_senior_s11
+# devinhouse_senior_s11
 Códigos passados em sala da semana 11
 
 Lista de aulas
