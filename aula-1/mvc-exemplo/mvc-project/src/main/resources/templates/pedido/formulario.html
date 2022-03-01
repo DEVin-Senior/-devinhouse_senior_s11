@@ -1,0 +1,44 @@
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">	</head>
+<body>
+<div class="container">
+    <div class="jumbotron mb-0">
+        <h1 class="display-4">Novo Pedido</h1>
+    </div>
+
+    <form th:object="${novoPedidoDto}" class="card-body" action="/pedido/novo" method="POST">
+        <div class="mb-3">
+            <label for="nome" class="form-label" >Produto</label>
+            <input th:field="*{nome}" th:errorClass="is-invalid" placeholder="nome do produto" class="form-control"/>
+            <small>Informa qual o nome do produto.</small>
+            <div class="invalid-feedback" th:errors="*{nome}">
+                Erros do nome do produto
+            </div>
+        </div>
+        <div class="mb-3" >
+            <label for="urlProduto" class="form-label">Url</label>
+            <input th:field="*{urlProduto}" th:errorClass="is-invalid" placeholder="url do produto" class="form-control"/>
+            <small>Procure em um site o produto que você deseja e cole a url da página aqui.</small>
+            <div class="invalid-feedback" th:errors="*{urlProduto}">
+                Erros da url do produto
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="urlImagemProduto" class="form-label">Imagem</label>
+            <input th:field="*{urlImagemProduto}" th:errorClass="is-invalid" placeholder="url da imagem" class="form-control"/>
+            <small>Copie a url de uma boa imagem do produto e cole aqui para ajudar a conseguir compradores.</small>
+            <div class="invalid-feedback" th:errors="*{urlImagemProduto}">
+                Erros da url da imagem
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="descricao" class="form-label">Descrição</label>
+            <textarea th:field="*{descricao}" placeholder="Adicione detalhes importantes para ajudar o comprador." class="form-control"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Cadastrar</button>
+    </form>
+</div>
+</body>
+</html>
