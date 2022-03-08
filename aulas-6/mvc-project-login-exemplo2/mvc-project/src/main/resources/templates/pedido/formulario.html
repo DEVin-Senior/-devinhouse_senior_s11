@@ -1,0 +1,40 @@
+<html>
+<head th:replace="~{base :: head}"></head>
+<body>
+<div th:replace="~{base :: logo}"></div>
+<div class="container">
+    <div th:replace="~{base :: titulo('Novo Pedido')}"></div>
+    <div class="mb-3">
+    <form th:object="${novoPedidoDto}" class="card-body" action="/pedido/novo" method="POST">
+            <label for="nome" class="form-label" >Produto</label>
+            <input th:field="*{nome}" th:errorClass="is-invalid" placeholder="nome do produto" class="form-control"/>
+            <small>Informa qual o nome do produto.</small>
+            <div class="invalid-feedback" th:errors="*{nome}">
+                Erros do nome do produto
+            </div>
+        </div>
+        <div class="mb-3" >
+            <label for="urlProduto" class="form-label">Url</label>
+            <input th:field="*{urlProduto}" th:errorClass="is-invalid" placeholder="url do produto" class="form-control"/>
+            <small>Procure em um site o produto que você deseja e cole a url da página aqui.</small>
+            <div class="invalid-feedback" th:errors="*{urlProduto}">
+                Erros da url do produto
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="urlImagemProduto" class="form-label">Imagem</label>
+            <input th:field="*{urlImagemProduto}" th:errorClass="is-invalid" placeholder="url da imagem" class="form-control"/>
+            <small>Copie a url de uma boa imagem do produto e cole aqui para ajudar a conseguir compradores.</small>
+            <div class="invalid-feedback" th:errors="*{urlImagemProduto}">
+                Erros da url da imagem
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="descricao" class="form-label">Descrição</label>
+            <textarea th:field="*{descricao}" placeholder="Adicione detalhes importantes para ajudar o comprador." class="form-control"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Cadastrar</button>
+    </form>
+</div>
+</body>
+</html>
